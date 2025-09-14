@@ -511,8 +511,7 @@ export default function Home() {
                   </AccordionTrigger>
                   <AccordionContent className="text-base text-muted-foreground">
                     Not at all. This workshop is designed to take you from
-                    zero to hands-on experience with AWS, Docker, Kubernetes,
-                    and the AWS Q CLI.
+                    zero to hands-on experience with AWS, Data Lakes & the AWS Q CLI.
                   </AccordionContent>
                 </AccordionItem>
                 <AccordionItem value="item-3">
@@ -532,9 +531,8 @@ export default function Home() {
                   <AccordionContent className="text-base text-muted-foreground">
                     <ul className="list-disc space-y-2 pl-6">
                       <li>Full-day access to both sessions</li>
-                      <li>Hands-on labs and projects</li>
-                      <li>Swags and prizes for quiz winners</li>
-                      <li>Refreshments from Burger King</li>
+                      <li>Swags and prizes for Quiz Winners</li>
+                      <li>Refreshments</li>
                       <li>Certificate of Participation</li>
                       <li>Full-day OD</li>
                     </ul>
@@ -554,9 +552,7 @@ export default function Home() {
                     Can I Network With The Speakers?
                   </AccordionTrigger>
                   <AccordionContent className="text-base text-muted-foreground">
-                    Absolutely. AWS Community Builders will be available
-                    throughout the day to answer questions and provide
-                    guidance.
+                    Absolutely. AWS Community Builders will be available to answer questions & provide guidance.
                   </AccordionContent>
                 </AccordionItem>
                  <AccordionItem value="item-8">
