@@ -17,25 +17,6 @@ import { cn } from '@/lib/utils';
 export function Navbar() {
   const pathname = usePathname();
 
-  // Don't show the full navbar on the admin page
-  if (pathname === '/admin') {
-    return (
-       <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background shadow-sm">
-        <div className="container mx-auto flex h-20 items-center justify-between px-4">
-          <Link href="/" className="flex items-center gap-2">
-            <Image
-              src="/logo.png"
-              alt="AWS Ascend Logo"
-              width={120}
-              height={40}
-              className="h-10 w-auto"
-            />
-          </Link>
-        </div>
-      </header>
-    )
-  }
-
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background shadow-sm">
       <div className="container mx-auto flex h-20 items-center justify-between px-4">

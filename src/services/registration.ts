@@ -1,7 +1,6 @@
-
 'use server';
 
-import { firestore } from '@/lib/server/firebase-admin';
+import { getFirestore } from '@/lib/server/firebase-admin';
 
 interface RegistrationData {
   name: string;
@@ -17,10 +16,9 @@ export async function saveRegistration(data: RegistrationData) {
     const registrationDoc = {
       ...data,
       createdAt: new Date(),
-      status: 'pending_verification',
     };
 
-    const docRef = await firestore.collection('registrations').add(registrationDoc);
+    const docRef = await getFirestore().collection('registrations').add(registrationDoc);
 
     return { success: true, insertedId: docRef.id };
   } catch (error) {
@@ -28,5 +26,3 @@ export async function saveRegistration(data: RegistrationData) {
     throw new Error('Could not save registration data.');
   }
 }
-
-    

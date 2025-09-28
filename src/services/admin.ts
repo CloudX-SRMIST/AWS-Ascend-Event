@@ -1,7 +1,7 @@
 
 'use server';
 
-import { firestore, storage } from '@/lib/server/firebase-admin';
+import { getFirestore, getStorage } from '@/lib/server/firebase-admin';
 import type { Timestamp } from 'firebase-admin/firestore';
 
 export async function verifyAdmin({ username, password }: { username: string, password?: string }) {
@@ -9,7 +9,7 @@ export async function verifyAdmin({ username, password }: { username: string, pa
     return { success: false };
   }
 
-  const adminRef = firestore.collection('admins').doc(username);
+  const adminRef = getFirestore().collection('admins').doc(username);
   const doc = await adminRef.get();
 
   if (!doc.exists) {
@@ -27,7 +27,7 @@ export async function verifyAdmin({ username, password }: { username: string, pa
 }
 
 export async function getRegistrations() {
-  const registrationsRef = firestore.collection('registrations');
+  const registrationsRef = getFirestore().collection('registrations');
   const snapshot = await registrationsRef.get();
   
   if (snapshot.empty) {
@@ -57,7 +57,7 @@ export async function updateRegistrationStatus({ registrationId, status }: { reg
         throw new Error('Registration ID and status are required.');
     }
 
-    const registrationRef = firestore.collection('registrations').doc(registrationId);
+    const registrationRef = getFirestore().collection('registrations').doc(registrationId);
 
     await registrationRef.update({
         status: status
@@ -72,7 +72,7 @@ export async function getScreenshotUrl({ path }: { path: string }) {
         throw new Error('A path is required to generate a signed URL.');
     }
     try {
-        const file = storage.bucket().file(path);
+        const file = getStorage().bucket().file(path);
         const [url] = await file.getSignedUrl({
             action: 'read',
             // URL expires in 15 minutes
